@@ -4,6 +4,7 @@ def preprocess(df,region_df):
     # filtering for summer olympics
     df = df[df['Season'] == 'Summer']
     # merge with region_df
+    # print(df.head())
     df = df.merge(region_df, on='NOC', how='left')
     # dropping duplicates
     df.drop_duplicates(inplace=True)

@@ -45,7 +45,7 @@ if user_menu == 'Overall Analysis':
     nations = df['region'].unique().shape[0]
 
     st.title("Top Statistics")
-    col1,col2,col3 = st.beta_columns(3)
+    col1,col2,col3 = st.columns(3)
     with col1:
         st.header("Editions")
         st.title(editions)
@@ -56,7 +56,7 @@ if user_menu == 'Overall Analysis':
         st.header("Sports")
         st.title(sports)
 
-    col1, col2, col3 = st.beta_columns(3)
+    col1, col2, col3 = st.columns(3)
     with col1:
         st.header("Events")
         st.title(events)
@@ -68,17 +68,17 @@ if user_menu == 'Overall Analysis':
         st.title(athletes)
 
     nations_over_time = helper.data_over_time(df,'region')
-    fig = px.line(nations_over_time, x="Edition", y="region")
+    fig = px.line(nations_over_time, x="Edition", y="Unique region")
     st.title("Participating Nations over the years")
     st.plotly_chart(fig)
 
     events_over_time = helper.data_over_time(df, 'Event')
-    fig = px.line(events_over_time, x="Edition", y="Event")
+    fig = px.line(events_over_time, x="Edition", y="Unique Event")
     st.title("Events over the years")
     st.plotly_chart(fig)
 
     athlete_over_time = helper.data_over_time(df, 'Name')
-    fig = px.line(athlete_over_time, x="Edition", y="Name")
+    fig = px.line(athlete_over_time, x="Edition", y="Unique Name")
     st.title("Athletes over the years")
     st.plotly_chart(fig)
 
@@ -164,7 +164,7 @@ if user_menu == 'Athlete wise Analysis':
     selected_sport = st.selectbox('Select a Sport', sport_list)
     temp_df = helper.weight_v_height(df,selected_sport)
     fig,ax = plt.subplots()
-    ax = sns.scatterplot(temp_df['Weight'],temp_df['Height'],hue=temp_df['Medal'],style=temp_df['Sex'],s=60)
+    ax = sns.scatterplot(data=temp_df, x='Weight', y='Height', hue='Medal', style='Sex', s=60)
     st.pyplot(fig)
 
     st.title("Men Vs Women Participation Over the Years")
