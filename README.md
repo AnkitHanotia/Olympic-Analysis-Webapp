@@ -53,7 +53,7 @@ olympics-data-analysis-web-app/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/olympics-data-analysis-web-app.git
+   git clone https://github.com/AnkitHanotia/olympics-data-analysis-web-app.git
    cd olympics-data-analysis-web-app
    ```
 
